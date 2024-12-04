@@ -1,24 +1,22 @@
-import { Heebo } from "next/font/google";
-import { IoLogoFacebook } from "react-icons/io";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import Link from "next/link";
 
-const heebo = Heebo({ subsets: ["latin"] });
+ import Image from "next/image";
+
+;
 const Footer = () => {
   return (
-    <div className="bg-footerBackground space-y-6 h-[243px] flex items-center  justify-center flex-col">
-      <div className="flex gap-7 ">
-      
-        <Link href={""} ><IoLogoFacebook className="w-[30px] h-[30px]" />{" "}  </Link>
-        <Link href={""} ><FaInstagram className="w-[30px] h-[30px]" />{" "}  </Link>
-        <Link href={""} ><FaTwitter className="w-[30px] h-[30px]" />{" "}  </Link>
-        <Link href={""} ><FaLinkedin className="w-[30px] h-[30px]" />  </Link>
-      </div>
-      <p className={`${heebo.className} text-center font-medium text-[18px] `}>
-        Copyright ©2020 All rights reserved
-      </p>
+    <div className="bg-background w-[325px] lg:w-[1444px] h-[125px] lg:flex items-center  lg:justify-around gap-8  ">
+      <Image className="mt-8 mx-auto lg:ml-0 lg:pt-0 lg:mx-0 "
+      src={"/image7.png"}
+      alt="footer"
+      width={242}
+      height={18}
+      />
+      <Image className=" ml-4 pt-6 mx-auto lg:ml-0 lg:pt-0 lg:mx-0 "
+      src={"/image7A.png"}
+      alt="footer"
+      width={326}
+      height={25}
+      />
     </div>
   );
 };

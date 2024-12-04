@@ -9,17 +9,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        black:"#21243D",
-        blok:"#000000",
+        
+        
         btn:"#F98585",
-        recBackground:"#F4E2E2",
+        recBackground:"#74C69D",
         viewal:"#F98585",
-        background: "#F6F0F0",
+        background: "#74C69D",
         heroEllipse:"#dfd8d8",
         footerBackground:"#FAF5F5",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        crimson: ["'Crimson Text'", "serif"], // Add Crimson Text font
+      },
     },
+    
   },
   plugins: [],
 } satisfies Config;

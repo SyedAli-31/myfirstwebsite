@@ -14,16 +14,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Heebo } from "next/font/google";
-
-const heebo = Heebo({ subsets: ["latin"] });
+import Image from "next/image";
 
 interface Props {
   window?: () => Window;
 }
 
 const drawerWidth = 240;
-const navItems = ["Work", "Blog", "Contact"];
+const navItems = ["Home", "Portfolio", "Services", "Contact"];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -35,7 +33,9 @@ export default function DrawerAppBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}></Typography>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        Start
+      </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -58,10 +58,8 @@ export default function DrawerAppBar(props: Props) {
       <AppBar
         component="nav"
         sx={{
-          backgroundColor: "#F6F0F0",
+          backgroundColor: "#74C69D",
           boxShadow: "none",
-          marginTop: "35px",
-          marginRight: "30px",
           position: "fixed",
           top: 0,
           left: 0,
@@ -69,31 +67,62 @@ export default function DrawerAppBar(props: Props) {
           zIndex: 1200,
         }}
       >
-        <Toolbar sx={{ minHeight: "64px", padding: "0 16px" }}>
-          <IconButton
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
+        <Toolbar
+          sx={{
+            minHeight: "64px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          {/* Logo Section */}
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "block", sm: "none" },
-              width: "100px", // Explicit width
-              height: "60px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              height: "50px",
+              ml: { xs: "16px", sm: "124px" }, // Responsive margin for smaller screens
+              mt: { xs: "10px", sm: "35px" }, // Adjusted for mobile
             }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          ></Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            {/* Logo */}
+            <Image
+              src="/image2.png"
+              alt="Logo"
+              width={64}
+              height={50}
+            />
+            {/* Start Text */}
+            <Box
+              sx={{
+                width: "99px",
+                height: "50px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "sans-serif",
+                fontWeight: 500,
+                fontSize: { xs: "24px", sm: "40px" }, // Smaller font size for mobile
+                color: "#FFFFFF",
+                ml: "10px",
+              }}
+            >
+              Start
+            </Box>
+          </Box>
+
+          {/* Navigation Items */}
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" }, // Hide on mobile
+              alignItems: "center",
+            }}
+          >
             {navItems.map((item) => (
               <Button
                 key={item}
                 sx={{
-                  color: "#21243D",
+                  color: "#FFFFFF",
                   fontWeight: 500,
                   fontFamily: "Heebo",
                   mx: 2,
@@ -103,8 +132,22 @@ export default function DrawerAppBar(props: Props) {
               </Button>
             ))}
           </Box>
+
+          {/* Mobile Menu Icon */}
+          <IconButton
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{
+              display: { xs: "block", sm: "none" }, // Only show on mobile
+              color: "#FFFFFF",
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
+
       <nav>
         <Drawer
           container={container}

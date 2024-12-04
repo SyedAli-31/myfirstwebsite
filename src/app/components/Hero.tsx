@@ -1,43 +1,42 @@
-import { Heebo } from "next/font/google";
 import Image from "next/image";
-const heebo = Heebo({ subsets: ["latin"] });
 
 const Hero = () => {
   return (
-    <div className="w-full max-w-[1030px] mx-auto mt-32 p-6">
+    <div className="w-full max-w-[1180px] mx-auto mt-6 p-4 lg:p-6">
       {/* Main container */}
-      <div className="flex flex-col lg:flex-row lg:items-start items-center justify-between">
+      <div className="flex flex-col lg:flex-row lg:items-center items-center justify-between">
         {/* Image */}
-        <div className="relative w-[292px] h-[299px] lg:order-2 order-1 mb-6 lg:mb-0">
+        <div className="relative w-full max-w-[644px] h-[220px] lg:h-[378px] lg:order-2 order-1 lg:ml-0 mb-4 lg:mb-0">
           <Image
-            className="z-50  absolute  lg:left-[48px] lg:mx-0"
+            className="z-50 absolute lg:left-0"
             src={"/image1.png"}
             alt="hero-image"
-            width={"292"}
-            height={"299"}
+            width={644}
+            height={378}
+            layout="responsive" // Ensures proper scaling on all screens
+            priority // Optimizes loading
           />
-          <div className="bg-heroEllipse w-[292px] h-[299px] -z-10 rounded-full absolute  lg:left-[40px] top-1 right-2" />
         </div>
 
         {/* Text Content */}
         <div
-          className={`${heebo.className} w-full lg:w-[521px] h-auto flex flex-col justify-between items-center lg:items-start order-2 lg:order-1`}
+          className={`w-full max-w-[416px] flex flex-col    lg:items-start order-2 lg:order-1`}
         >
-          <h1 className="font-black text-5xl lg:leading-[61px] text-[#21243D] text-center lg:text-left">
-            Hi, I am John,
+          <h1 className="text-[16px] leading-[20px] font-sans font-bold text-white text-start lg:text-left">
+            W E L C O M E
             <br />
-            Creative Technologist
+            <p className="font-crimson text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-[34px] sm:leading-[42px] md:leading-[48px] lg:leading-[50px] font-bold text-white pt-2">
+              Lorem ipsum dolor sit amet consectetur
+            </p>
           </h1>
-          <p className="font-normal mt-4 text-center lg:text-left w-full lg:w-[510px]">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            <br />
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam
-            <br /> consequat sunt nostrud amet
+          <p className="font-normal font-sans mt-1 text-start lg:text-left w-full max-w-[416px] text-[14px] sm:text-[15px] leading-[18px] sm:leading-[18.75px] text-white">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit
+            nemo hic quos, ab, dolor aperiam nobis cum est eos error ipsum,
+            voluptate culpa nesciunt delectus iste?
           </p>
-          <div className="mt-6">
-            <button className="bg-btn w-[205px] h-[50px] text-white shadow-sm shadow-black/65">
-              Download Resume
+          <div className="mt-3">
+            <button className="bg-white w-[140px] sm:w-[170px] h-[40px] sm:h-[48px] text-black rounded">
+              Explore
             </button>
           </div>
         </div>
